@@ -1,0 +1,25 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include<iomanip>
+using namespace std;
+
+int main(){
+    string time;
+    cin >> time;
+    int hh= (time[0]-'0')*10 +(time[1]-'0');
+    int mm= (time[3]-'0')*10 +(time[4]-'0');
+    int ss= (time[6]-'0')*10 +(time[7]-'0');
+    if(time[8]=='P')
+        {
+        if(hh!=12)
+        hh=hh+12;
+    }
+    if(time[8]=='A')
+        if(hh==12)hh=0;
+    cout<<setfill('0')<<setw(2)<<hh<<":"<<setfill('0')<<setw(2)<<mm<<":"<<setfill('0')<<setw(2)<<ss;
+    
+    return 0;
+}
