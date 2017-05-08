@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+
+    vector <int> arr(5);
+    for(int arr_i = 0; arr_i < 5; arr_i++){
+       cin >> arr[arr_i];
+    }
+    for(int arr_i = 0; arr_i < 4; arr_i++){
+       for(int arr_j=arr_i+1;arr_j<5;arr_j++)
+           {
+           if(arr[arr_i]>arr[arr_j])
+               {
+               int temp=arr[arr_i];
+               arr[arr_i]=arr[arr_j];
+               arr[arr_j]=temp;
+           }
+       }
+    }
+    long int max=0, min=0;
+    for(int arr_i = 0; arr_i < 5; arr_i++){
+       if(arr_i<=3)
+           min+=arr[arr_i];
+        if(arr_i>=1)
+            max+=arr[arr_i];
+    }
+    cout<<min<<" "<<max;
+    return 0;
+}
