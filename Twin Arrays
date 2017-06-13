@@ -1,0 +1,44 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int twinArrays(int *ar1, int *ar2, int n){
+    int min1=10001, min2=10001, index1=-1, index2=-1, p_min1=0, p_min2=0;
+    for(int i=0;i<n;i++)
+    {
+        if(ar1[i]<min1){
+            p_min1=min1;
+            min1=ar1[i]; 
+            index1=i; 
+          }
+        else if(ar1[i]>=min1 && ar1[i]<p_min1 )
+          p_min1=ar1[i];
+        if(ar2[i]<min2)
+        {
+          p_min2=min2; 
+          min2=ar2[i]; 
+          index2=i; 
+        }
+        else if(ar2[i]>=min2&& ar2[i]<p_min2)
+          p_min2=ar2[i];
+    }
+    if(index1!=index2)
+        return min1+min2;
+    return (p_min1<p_min2)? min2+p_min1: min1+p_min2;   
+}
+
+int main() {
+    int n;
+    cin >> n;
+    int ar1[n];
+    for(int ar1_i = 0; ar1_i < n; ar1_i++){
+       cin >> ar1[ar1_i];
+    }
+    int ar2[n];
+    for(int ar2_i = 0; ar2_i < n; ar2_i++){
+       cin >> ar2[ar2_i];
+    }
+    int result = twinArrays(ar1, ar2, n);
+    cout << result << endl;
+    return 0;
+}
